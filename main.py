@@ -7,4 +7,9 @@ if __name__ == "__main__":
         "mailbox": "INBOX"
     })
     email_reader = Readers.email_reader()
-    print email_reader.read('(SUBJECT TestSubject)')
+    
+    # Compatibility for Python 2/3
+    try:
+        print(email_reader.read('(SUBJECT TestSubject)'))
+    except:
+        print email_reader.read('(SUBJECT TestSubject)')  
